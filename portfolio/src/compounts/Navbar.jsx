@@ -1,6 +1,7 @@
 import { IoMenu } from "react-icons/io5";
 import { RxCross2 } from "react-icons/rx";
 import { useState } from "react";
+import { Link } from 'react-scroll'
 
 
 function Navbar() {
@@ -47,12 +48,20 @@ function Navbar() {
                 {
                     navItem.map(({
                         id,text })=>(
-                        <li className="hover scale-105 duration-200 cursor-pointer" key={id}>{text}</li>
+                        <li className="hover scale-105 duration-200 cursor-pointer" key={id}>
+                        <Link to={text}
+                        smooth={true}
+                        duration={500}
+                        offset={-70}
+                        activeClass="active"
+                        >{text}</Link>
+                        </li>
                     ))
                 }
             </ul>
 
-           <div onClick={()=>setMenu(!menu)} className="md:hidden"> {menu ?<IoMenu size={24} /> :           <RxCross2 size={24} />
+           <div onClick={()=>setMenu(!menu)} className="md:hidden">
+            {menu ?<RxCross2 size={24} /> :           <IoMenu size={24} />
            } 
 
 
@@ -63,12 +72,23 @@ function Navbar() {
     </div>
 {/* mobile navbar */}
 {
-    menu && <div className="">
+    menu && <div className="bg-white">
     <ul className="md:hidden flex flex-col h-screen items-center justify-center space-y-3 text-xl">
     {
                     navItem.map(({
                         id,text })=>(
-                        <li className="hover scale-105 font-semibold duration-200 cursor-pointer " key={id}>{text}</li>
+                        <li className="hover scale-105 font-semibold duration-200 cursor-pointer " key={id}>
+                        
+                        <Link 
+                        onClick={()=>setMenu(!menu)}
+                        to={text}
+                        smooth={true}
+                        duration={500}
+                        offset={-70}
+                        activeClass="active"
+                        >{text}</Link>
+                        
+                        </li>
                     ))
                 }
             </ul>
