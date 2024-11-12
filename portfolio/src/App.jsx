@@ -6,6 +6,7 @@ import About from './compounts/About'
 import Experience from './compounts/Experience'
 import Footer from './compounts/Footer'
 import Contact from './compounts/Contact'
+import { Toaster } from 'react-hot-toast'
 // import Portfolio from './compounts/Portfolio'
 
 function App() {
@@ -14,6 +15,7 @@ function App() {
     <>
      
      
+      <div>
       <Navbar></Navbar>
       <Home></Home>
       <About></About>
@@ -22,6 +24,9 @@ function App() {
       <Contact></Contact>
 
       <Footer></Footer>
+      </div>
+      <Toaster></Toaster>
+
 
        
     </>
